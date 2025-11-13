@@ -19,10 +19,15 @@ public class RabinKarp {
     }
 
     public static List<Integer> search(String text, String pattern) {
-        int n = text.length(), m = pattern.length();
+        List<Integer> matches = new ArrayList<>();
         hashComparisons = 0; // reset before each test
 
-        if (m > n) return List.of();
+        // Guard clause: handle empty/null cases
+        if (text == null || pattern == null || pattern.isEmpty() || text.isEmpty() || pattern.length() > text.length()) {
+            return matches;
+        }
+
+        int n = text.length(), m = pattern.length();
 
         long patternHash = computeHash(pattern);
         long[] prefixHash = new long[n + 1];
@@ -34,8 +39,6 @@ public class RabinKarp {
             pow[i + 1] = (pow[i] * P) % M;
         }
 
-        List<Integer> matches = new ArrayList<>();
-
         for (int i = 0; i + m <= n; i++) {
             hashComparisons++; // counting comparison operation
             long currentHash = (prefixHash[i + m] - prefixHash[i] + M) % M;
@@ -46,6 +49,7 @@ public class RabinKarp {
                 }
             }
         }
+
         return matches;
     }
 

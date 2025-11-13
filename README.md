@@ -61,7 +61,7 @@ mvn exec:java -Dexec.mainClass="com.example.rabinkarp.Main"
 | Medium   | 18          | `aaab` | [14]             | 0.01466   | 15              |
 | Long     | 32          | `aba`  | [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28] | 0.03375 | 30 |
 
-## 📊 Observations
+##  Observations
 - The number of hash comparisons grows **linearly** with text length.
 - Execution time remains very low even for medium and long strings, demonstrating **efficiency**.
 - The algorithm correctly identifies **overlapping matches** and handles **multiple occurrences**.
@@ -80,7 +80,7 @@ mvn exec:java -Dexec.mainClass="com.example.rabinkarp.Main"
 - **Pattern comparison on hash match:** O(k * m), where `k` = number of hash matches
 - For typical input with minimal collisions, the algorithm performs effectively in **linear time**.
 
-## ✅ JUnit Test Coverage
+##  JUnit Test Coverage
 
 | Category | Description | Example Test |
 |----------|------------|--------------|

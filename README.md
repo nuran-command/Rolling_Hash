@@ -3,7 +3,7 @@
 ## Algorithm Overview
 
 My code implements **Rabin–Karp string matching** using **polynomial rolling hash**.
-
+Sample input/output in Main.java
 ### Workflow
 1. **Guard Clause:**  
    Handles empty strings, null input, or cases where the pattern is longer than the text.

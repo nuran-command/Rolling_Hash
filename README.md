@@ -34,14 +34,25 @@ It efficiently finds all occurrences of a pattern within a given text by compari
 
 ##  Project Structure
 
-| File | Description |
-|------|--------------|
-| `RabinKarp.java` | Core algorithm implementation using rolling hash |
-| `Main.java` | Demonstrates algorithm on short, medium, and long test strings |
-| `RabinKarpTest.java` | Automated JUnit test suite covering edge and normal cases |
-| `report.md` | Report summarizing design, testing, and complexity analysis |
-| `pom.xml` | Maven build configuration |
+| File                 | Description                                                    |
+|----------------------|----------------------------------------------------------------|
+| `RabinKarp.java`     | Core algorithm implementation using rolling hash               |
+| `Main.java`          | Demonstrates algorithm on short, medium, and long test strings |
+| `RabinKarpTest.java` | Automated JUnit test suite covering edge and normal cases      |
+| `report.md`          | Report summarizing design, testing, and complexity analysis    |
+| `pom.xml`            | Maven build configuration                                      |
+| `data`               | input/output cases for testing                                 |
 
+## Data Files
+
+| File | Description |
+|------|-------------|
+| `data/input/input_short.json` | Contains short test cases (`text` and `pattern`) for Rabin–Karp algorithm |
+| `data/input/input_medium.json` | Contains medium-length test cases for Rabin–Karp algorithm |
+| `data/input/input_long.json` | Contains long test cases for Rabin–Karp algorithm |
+| `data/output/output_short.json` | Contains Rabin–Karp output (match indices) for short test cases |
+| `data/output/output_medium.json` | Contains Rabin–Karp output (match indices) for medium-length test cases |
+| `data/output/output_long.json` | Contains Rabin–Karp output (match indices) for long test cases |
 ---
 
 ## Build & Run

@@ -57,8 +57,9 @@ It efficiently finds all occurrences of a pattern within a given text by compari
 
 ## Build & Run
 ```bash
+mvn test
 mvn compile
-mvn exec:java -Dexec.mainClass="com.example.rabinkarp.Main"
+mvn exec:java -Dexec.mainClass="com.carrental.rabinkarp.Main"
 ```
 ### Prerequisites
 - Java 23

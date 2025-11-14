@@ -53,13 +53,14 @@ mvn exec:java -Dexec.mainClass="com.example.rabinkarp.Main"
 - Java 23
 - Maven 3.8+
 
-##  Sample Execution Output
+##  Sample Execution Output in Main.java
 
 | Test Case | Text Length | Pattern | Matches (Indices) | Time (ms) | Hash Comparisons |
 |-----------|-------------|---------|------------------|------------|-----------------|
 | Short    | 10          | `abc`  | [0, 4, 7]        | 0.73175   | 8               |
 | Medium   | 18          | `aaab` | [14]             | 0.01466   | 15              |
 | Long     | 32          | `aba`  | [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28] | 0.03375 | 30 |
+
 
 ##  Observations
 - The number of hash comparisons grows **linearly** with text length.

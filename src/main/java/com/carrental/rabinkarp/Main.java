@@ -26,7 +26,7 @@ class OutputCase {
         this.matches = matches;
     }
 }
-
+// My input/output
 public class Main {
     public static void main(String[] args) throws IOException {
         String[][] tests = {
@@ -38,7 +38,7 @@ public class Main {
         // For Gson
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        // Prepare lists for JSON output
+        // Prepared lists for JSON output
         List<TestCase> shortInputs = new ArrayList<>();
         List<TestCase> mediumInputs = new ArrayList<>();
         List<TestCase> longInputs = new ArrayList<>();
@@ -47,7 +47,7 @@ public class Main {
         List<OutputCase> mediumOutputs = new ArrayList<>();
         List<OutputCase> longOutputs = new ArrayList<>();
 
-        // Run your original tests and collect input/output
+        // Run my original tests and collect input/output
         for (String[] test : tests) {
             String text = test[0];
             String pattern = test[1];
@@ -58,7 +58,7 @@ public class Main {
             long endTime = System.nanoTime();
             long duration = endTime - startTime;
 
-            // Print as before
+            // Print
             System.out.println("Text length: " + text.length());
             System.out.println("Pattern: " + pattern);
             System.out.println("Matches at indices: " + matches);

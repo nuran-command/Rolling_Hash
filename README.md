@@ -88,6 +88,72 @@ mvn exec:java -Dexec.mainClass="com.carrental.rabinkarp.Main"
 | Worst-case Time Complexity | O(n * m) in case of repeated hash collisions requiring substring comparison. Rare with a large prime `M`. |
 | Space Complexity | O(n) for storing `prefixHash` and `pow` arrays. Constant space for pattern hash and counter. |
 
+## Sample Input/Output Analysis
+
+### 1. Short Test Case
+**Text:** `abcdabcabc`  
+**Pattern:** `abc`
+
+| Metric | Value |
+|--------|-------|
+| Matches | [0, 4, 7] |
+| Time (ms) | 0.73175 |
+| Hash Comparisons | 8 |
+
+**Details:**
+- The pattern `"abc"` occurs at indices 0, 4, and 7.
+- Overlapping matches are handled correctly.
+- Extremely fast execution because text length `n = 10` and pattern length `m = 3` are small.
+- Linear preprocessing (prefix hash and powers) is negligible.
+- Number of sliding windows = `n - m + 1 = 8`, matches hash comparisons.
+
+**Observation:**  
+For small inputs, the algorithm performs as expected. Collision checking via substring comparison is minimal.
+
+---
+
+### 2. Medium Test Case
+**Text:** `aaaaaaaaaaaaaaaaab`  
+**Pattern:** `aaab`
+
+| Metric | Value |
+|--------|-------|
+| Matches | [14] |
+| Time (ms) | 0.01466 |
+| Hash Comparisons | 15 |
+
+**Details:**
+- Only one valid match occurs at index 14.
+- Rolling hash efficiently skips earlier overlapping non-matching substrings.
+- Each substring hash is computed in **O(1)** using the rolling hash, avoiding full string comparisons except for the final match.
+- Number of sliding windows = `n - m + 1 = 15`.
+
+**Observation:**  
+Hash computations dominate but remain efficient. Substring comparisons are only performed when hashes match.
+
+---
+
+### 3. Long Test Case
+**Text:** `abababababababababababababababab`  
+**Pattern:** `aba`
+
+| Metric | Value |
+|--------|-------|
+| Matches | [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28] |
+| Time (ms) | 0.03375 |
+| Hash Comparisons | 30 |
+
+**Details:**
+- Repeated overlapping occurrences are correctly detected.
+- Rolling hash ensures each window is checked efficiently without recomputing hashes from scratch.
+- Number of sliding windows = `n - m + 1 = 30`.
+
+**Observation:**
+- Algorithm scales **linearly** with text length, confirming average-case `O(n + m)` complexity.
+- Overlapping matches are detected automatically due to sliding window hash.
+
+---
+
 ### Explanation
 - **Preprocessing hashes:** O(n)
 - **Pattern comparison on hash match:** O(k * m), where `k` = number of hash matches
